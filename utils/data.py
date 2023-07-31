@@ -5,7 +5,7 @@ import re
 import random
 import numpy as np
 from torch.utils.data import TensorDataset, DataLoader, RandomSampler
-
+import torch
 
 SOS_token = 0
 EOS_token = 1
@@ -116,8 +116,8 @@ def tensorFromPair(pair):
 
 
 
-def get_dataloader(lang1,lang2,batch_size,test_ratio=0.1):
-    input_lang,output_lang,pairs=prepareData(lang1,lang2,True)
+def get_dataloader(lang1,lang2,batch_size,test_ratio=0.1,reverse=False):
+    input_lang,output_lang,pairs=prepareData(lang1,lang2,False)
     N=len(pairs)
     input_ids=torch.zeros(size=(N,MAX_LENGTH),dtype=torch.long)
     output_ids=torch.zeros(size=(N,MAX_LENGTH),dtype=torch.long)

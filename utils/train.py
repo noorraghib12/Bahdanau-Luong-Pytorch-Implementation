@@ -4,7 +4,6 @@ from torch import optim
 import torch.nn.functional as F
 from torchmetrics.classification import Accuracy
 from tqdm import tqdm
-
 import matplotlib.pyplot as plt
 plt.switch_backend('agg')
 import matplotlib.ticker as ticker
@@ -80,4 +79,11 @@ def train_bahdanau_luong(epochs,encoder,decoder,train_dataloader,test_dataloader
             plot_losses.append(plot_loss_total/plot_every)
             plot_loss_total=0
     showPlot(plot_losses)
+    
+
+
+
+
+if __name__=='__main__':
+    
     
